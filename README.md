@@ -23,6 +23,147 @@ git reset --soft a1
 git branch -d a1  # to delete a1 branch
 git rm <file-name>  # to delete a file from repo
 ```
+## Task 2
+
+Linked List:
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Define the structure for an employee
+typedef struct Employee {
+    char name[100];
+    char email[100];
+    char phoneNo[15];
+    char designation[50];
+    double salary;
+    struct Employee* next;
+} Employee;
+
+// Function to create a new employee node
+Employee* createEmployee(char name[], char email[], char phoneNo[], char designation[], double salary) {
+    Employee* newEmployee = (Employee*)malloc(sizeof(Employee));
+    strcpy(newEmployee->name, name);
+    strcpy(newEmployee->email, email);
+    strcpy(newEmployee->phoneNo, phoneNo);
+    strcpy(newEmployee->designation, designation);
+    newEmployee->salary = salary;
+    newEmployee->next = NULL;
+    return newEmployee;
+}
+
+// Function to add an employee to the linked list
+void addEmployee(Employee** head, char name[], char email[], char phoneNo[], char designation[], double salary) {
+    Employee* newEmployee = createEmployee(name, email, phoneNo, designation, salary);
+    newEmployee->next = *head;
+    *head = newEmployee;
+    printf("Employee added successfully.\n");
+}
+
+// Function to delete an employee by name
+void deleteEmployee(Employee** head, char name[]) {
+    Employee* temp = *head;
+    Employee* prev = NULL;
+
+    // If the head node itself holds the employee to be deleted
+    if (temp != NULL && strcmp(temp->name, name) == 0) {
+        *head = temp->next; // Changed head
+        free(temp); // Free old head
+        printf("Employee deleted successfully.\n");
+        return;
+    }
+
+    // Search for the employee to be deleted, keep track of the previous node
+    while (temp != NULL && strcmp(temp->name, name) != 0) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // If employee was not present in linked list
+    if (temp == NULL) {
+        printf("Employee not found.\n");
+        return;
+    }
+
+    // Unlink the node from linked list
+    prev->next = temp->next;
+    free(temp); // Free memory
+    printf("Employee deleted successfully.\n");
+}
+
+// Function to print the employee list
+void printEmployees(Employee* head) {
+    Employee* temp = head;
+    if (temp == NULL) {
+        printf("No employees to display.\n");
+        return;
+    }
+    while (temp != NULL) {
+        printf("Name: %s\n", temp->name);
+        printf("Email: %s\n", temp->email);
+        printf("Phone No: %s\n", temp->phoneNo);
+        printf("Designation: %s\n", temp->designation);
+        printf("Salary: %.2f\n", temp->salary);
+        printf("-------------------------\n");
+        temp = temp->next;
+    }
+}
+
+// Main function to demonstrate the functionality
+int main() {
+    Employee* head = NULL;
+    int choice;
+    char name[100], email[100], phoneNo[15], designation[50];
+    double salary;
+
+    do {
+        printf("\nEmployee Management System\n");
+        printf("1. Add Employee\n");
+        printf("2. Delete Employee\n");
+        printf("3. View Employees\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter name: ");
+                scanf("%s", name);
+                printf("Enter email: ");
+                scanf("%s", email);
+                printf("Enter phone number: ");
+                scanf("%s", phoneNo);
+                printf("Enter designation: ");
+                scanf("%s", designation);
+                printf("Enter salary: ");
+                scanf("%lf", &salary);
+                addEmployee(&head, name, email, phoneNo, designation, salary);
+                break;
+            case 2:
+                printf("Enter name of the employee to delete: ");
+                scanf("%s", name);
+                deleteEmployee(&head, name);
+                break;
+            case 3:
+                printEmployees(head);
+                break;
+            case 4:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+                break;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
+```
+
+Matrix Multiplication:
+
 
 ## Task 3
 
