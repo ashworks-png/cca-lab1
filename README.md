@@ -1,7 +1,7 @@
 # cca-lab1
 
-Task 1:
-D:
+Task 1:__
+D:__
 cd <directory-name>
 git clone https://github.com/ashworks-png/cca-lab1.git
 git status
