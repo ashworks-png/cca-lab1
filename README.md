@@ -1,37 +1,48 @@
 # cca-lab1
 
-Task 1: <br />
-D:__
+## Task 1
+
+To clone the repository and perform basic Git operations:
+
+```bash
+D:
 cd <directory-name>
 git clone https://github.com/ashworks-png/cca-lab1.git
 git status
-git add .  OR git add sample.txt
+git add .  # OR git add sample.txt
 git commit -m "initial commit"
 git push origin main
-get fetch origin
-get pull origin main
+git fetch origin
+git pull origin main
 git branch a1
 git branch
 git branch -M a1
 git checkout -b a2
-git checkout a1 #to switch branches
+git checkout a1  # to switch branches
 git reset --soft a1
-git branch -d a1 #to delete a1 branch
-git rm <file-name> #to delete a file from repo
+git branch -d a1  # to delete a1 branch
+git rm <file-name>  # to delete a file from repo
 
+Task 3
 
-Task 3:
-go to: console.cloud.google.com
-enable API -> search 'App Engine Admin API'
-open terminal (top-right)
+Steps to enable API and run a Python server:
 
-Inside terminal:
-git clone https://github.com/ashworks-png/cca-lab1.gi
+    Go to console.cloud.google.com
+    Enable API -> search for 'App Engine Admin API'
+    Open terminal (top-right) and execute the following commands:
+
+bash
+
+git clone https://github.com/ashworks-png/cca-lab1.git
 cd cca-lab1
 python3 -m http.server 8000
 
-Task 4:
-fcfc-code.java ->
+Task 4
+
+Example Java code (fcfc-code.java) for process scheduling:
+
+java
+
 import java.util.Scanner;
 
 public class Main {
