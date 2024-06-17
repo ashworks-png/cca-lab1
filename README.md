@@ -29,14 +29,14 @@ git rm <file-name>  # to delete a file from repo
 Steps to enable API and run a Python server:
 
 ```
-    Go to console.cloud.google.com
-    Enable API -> search for 'App Engine Admin API'
-    Open terminal (top-right) and execute the following commands:
-```
+Go to console.cloud.google.com
+Enable API -> search for 'App Engine Admin API'
+Open terminal (top-right) and execute the following commands:
 
 git clone https://github.com/ashworks-png/cca-lab1.git
 cd cca-lab1
 python3 -m http.server 8000
+```
 
 ## Task 4
 
