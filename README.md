@@ -164,6 +164,80 @@ int main() {
 
 Matrix Multiplication:
 
+```
+#include <stdio.h>
+
+void multiplyMatrices(int firstMatrix[][10], int secondMatrix[][10], int resultMatrix[][10], int rowFirst, int columnFirst, int rowSecond, int columnSecond) {
+    // Initializing all elements of resultMatrix to 0
+    for (int i = 0; i < rowFirst; i++) {
+        for (int j = 0; j < columnSecond; j++) {
+            resultMatrix[i][j] = 0;
+        }
+    }
+
+    // Multiplying firstMatrix and secondMatrix and storing in resultMatrix
+    for (int i = 0; i < rowFirst; i++) {
+        for (int j = 0; j < columnSecond; j++) {
+            for (int k = 0; k < columnFirst; k++) {
+                resultMatrix[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+            }
+        }
+    }
+}
+
+void printMatrix(int matrix[][10], int row, int column) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int firstMatrix[10][10], secondMatrix[10][10], resultMatrix[10][10];
+    int rowFirst, columnFirst, rowSecond, columnSecond;
+
+    // Input dimensions of first matrix
+    printf("Enter rows and columns for the first matrix: ");
+    scanf("%d %d", &rowFirst, &columnFirst);
+
+    // Input dimensions of second matrix
+    printf("Enter rows and columns for the second matrix: ");
+    scanf("%d %d", &rowSecond, &columnSecond);
+
+    // Check if multiplication is possible
+    if (columnFirst != rowSecond) {
+        printf("Error! Column of the first matrix must be equal to row of the second matrix.\n");
+        return -1;
+    }
+
+    // Input elements of first matrix
+    printf("Enter elements of the first matrix:\n");
+    for (int i = 0; i < rowFirst; i++) {
+        for (int j = 0; j < columnFirst; j++) {
+            scanf("%d", &firstMatrix[i][j]);
+        }
+    }
+
+    // Input elements of second matrix
+    printf("Enter elements of the second matrix:\n");
+    for (int i = 0; i < rowSecond; i++) {
+        for (int j = 0; j < columnSecond; j++) {
+            scanf("%d", &secondMatrix[i][j]);
+        }
+    }
+
+    // Multiply matrices
+    multiplyMatrices(firstMatrix, secondMatrix, resultMatrix, rowFirst, columnFirst, rowSecond, columnSecond);
+
+    // Display the resulting matrix
+    printf("Product of the matrices:\n");
+    printMatrix(resultMatrix, rowFirst, columnSecond);
+
+    return 0;
+}
+```
 
 ## Task 3
 
