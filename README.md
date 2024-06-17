@@ -4,7 +4,7 @@
 
 To clone the repository and perform basic Git operations:
 
-```bash
+```
 D:
 cd <directory-name>
 git clone https://github.com/ashworks-png/cca-lab1.git
@@ -22,27 +22,27 @@ git checkout a1  # to switch branches
 git reset --soft a1
 git branch -d a1  # to delete a1 branch
 git rm <file-name>  # to delete a file from repo
+```
 
-Task 3
+## Task 3
 
 Steps to enable API and run a Python server:
 
+```
     Go to console.cloud.google.com
     Enable API -> search for 'App Engine Admin API'
     Open terminal (top-right) and execute the following commands:
-
-bash
+```
 
 git clone https://github.com/ashworks-png/cca-lab1.git
 cd cca-lab1
 python3 -m http.server 8000
 
-Task 4
+## Task 4
 
 Example Java code (fcfc-code.java) for process scheduling:
 
-java
-
+```
 import java.util.Scanner;
 
 public class Main {
@@ -101,3 +101,4 @@ public class Main {
         scanner.close();
     }
 }
+```
