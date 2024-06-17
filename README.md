@@ -1,6 +1,6 @@
 # cca-lab1
 
-Task 1:__
+Task 1: <br />
 D:__
 cd <directory-name>
 git clone https://github.com/ashworks-png/cca-lab1.git
